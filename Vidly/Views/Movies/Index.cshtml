@@ -1,4 +1,4 @@
-﻿@model Vidly.ViewModels.MovieViewModel
+﻿@model IEnumerable<Vidly.Models.Movie>
 
 @{
     ViewBag.Title = "Movies";
@@ -7,18 +7,26 @@
 
 <h2>Movies</h2>
 
-@if (Model.Movies.Count == 0)
-{
-    <text>We don't have any movies yet.</text>
-}
-else
-{
-    <ul>
-        @foreach (var movie in Model.Movies)
+<div>
+    <a href="/Movies/New" class="btn btn-primary">NEW MOVIE</a>
+</div>
+<div><br/></div>
+<div>
+    <table class="table table-bordered table-hover">
+        <thead>
+        <tr>
+            <th>Movie</th>
+            <th>Genre</th>
+        </tr>
+        </thead>
+        <tbody>
+        @foreach (var movie in Model)
         {
-            <li>
-                <b>@movie.Name</b>
-            </li>
+            <tr>
+                <td>@Html.ActionLink(@movie.Name, "Edit", "Movies", new {id = movie.Id}, null)</td>
+                <td>@movie.Genre.Name</td>
+            </tr>
         }
-    </ul>
-}
+        </tbody>
+    </table>
+</div>
