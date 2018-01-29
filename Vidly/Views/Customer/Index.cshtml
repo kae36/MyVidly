@@ -1,7 +1,6 @@
 ﻿@using Vidly.Controllers
 @using Vidly.Models
-@using Vidly.ViewModels
-@model Vidly.ViewModels.CustomerViewModel
+@model Vidly.Models.Customer
 
 @{
     ViewBag.Title = "Customers";
@@ -10,7 +9,7 @@
 
 <h2>Customers</h2>
 
-@if (Model.Customers.Count == 0)
+@if (Model.Customers.count == 0)
 {
     <text>We don't have any customers yet.</text>
 }
@@ -20,7 +19,7 @@ else
         @foreach (var customer in Model.Customers)
         {
             <li>
-                @Html.ActionLink(customer.Name, "Details", "Customer", new {id = customer.Id}, null);
+                @Html.ActionLink(customer.Name, "Details", "Customer", new {Id = customer.Id}, null);
             </li>
         }
     </ul>
