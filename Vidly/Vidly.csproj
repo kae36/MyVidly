@@ -207,11 +207,16 @@
     <Compile Include="Migrations\201801291640557_AddSeedDataForMovieAndGenreEntities.Designer.cs">
       <DependentUpon>201801291640557_AddSeedDataForMovieAndGenreEntities.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201801302115098_UpdateMovieValidationData.cs" />
+    <Compile Include="Migrations\201801302115098_UpdateMovieValidationData.Designer.cs">
+      <DependentUpon>201801302115098_UpdateMovieValidationData.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Customer.cs" />
     <Compile Include="Models\Genre.cs" />
     <Compile Include="Models\MembershipType.cs" />
+    <Compile Include="Models\Min18YearsIfAMember.cs" />
     <Compile Include="Models\Movie.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
@@ -365,6 +370,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201801291640557_AddSeedDataForMovieAndGenreEntities.resx">
       <DependentUpon>201801291640557_AddSeedDataForMovieAndGenreEntities.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201801302115098_UpdateMovieValidationData.resx">
+      <DependentUpon>201801302115098_UpdateMovieValidationData.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
