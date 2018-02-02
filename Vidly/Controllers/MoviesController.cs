@@ -22,6 +22,7 @@ namespace Vidly.Controllers
             _context.Dispose();
         }
 
+        [Authorize(Roles = RoleName.CanManageMovies)]
         public ActionResult New()
         {
             var genres = _context.Genres.ToList();
@@ -34,12 +35,7 @@ namespace Vidly.Controllers
 
         public ActionResult Index(int? pageIndex, string sortBy)
         {
-            //Content($@"pageIndex={pageIndex},sortBy={sortBy}");
-            if (!pageIndex.HasValue) pageIndex = 1;
-            if (String.IsNullOrWhiteSpace(sortBy)) sortBy = "Name";
-
-            var movies = GetMovies();
-            return View(movies);
+            return View(User.IsInRole(RoleName.CanManageMovies) ? "List" : "ReadOnlyList");
         }
 
         public ActionResult Save(Movie movie)
